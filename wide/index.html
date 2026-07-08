@@ -25,22 +25,32 @@
 
   <!-- ① Hero: 10s Live + AI title -->
   <section class="module live-module">
-    <div class="live-frame">
-      <video id="liveVideo" class="live-video"
-             playsinline loop muted
-             poster="assets/hero.jpg"
-             preload="metadata">
-        <source src="assets/live.mp4" type="video/mp4" />
-      </video>
-      <div class="live-badge">● LIVE 10s</div>
-      <button id="soundBtn" class="sound-btn" aria-label="toggle sound">🔇</button>
-      <button id="playBtn" class="play-overlay" aria-label="play">▶</button>
-    </div>
-    <!-- AI title: short phrase, ≤4 words -->
-    <div class="live-caption">
-      <h1 class="ai-title">Welcome to the World</h1>
-      <p class="ai-title-sub">A title AI wrote for this Live</p>
-      <div class="scroll-hint">Swipe down to open this day ↓</div>
+    <div class="live-hero">
+      <!-- 上花边：与绘本风格契合的装饰 -->
+      <div class="live-edge live-edge-top" aria-hidden="true">
+        <span>✦</span><span>❀</span><span>♡</span><span>❀</span><span>✦</span>
+      </div>
+      <div class="live-frame">
+        <video id="liveVideo" class="live-video"
+               playsinline loop muted
+               poster="assets/hero.jpg"
+               preload="metadata">
+          <source src="assets/live.mp4" type="video/mp4" />
+        </video>
+        <div class="live-badge">● LIVE 10s</div>
+        <button id="soundBtn" class="sound-btn" aria-label="toggle sound">🔇</button>
+        <button id="playBtn" class="play-overlay" aria-label="play">▶</button>
+      </div>
+      <!-- 下花边 -->
+      <div class="live-edge live-edge-bottom" aria-hidden="true">
+        <span>✦</span><span>❀</span><span>♡</span><span>❀</span><span>✦</span>
+      </div>
+      <!-- AI title: short phrase, ≤4 words -->
+      <div class="live-caption">
+        <h1 class="ai-title">Welcome to the World</h1>
+        <p class="ai-title-sub">A title AI wrote for this Live</p>
+        <div class="scroll-hint">Swipe down to open this day ↓</div>
+      </div>
     </div>
   </section>
 

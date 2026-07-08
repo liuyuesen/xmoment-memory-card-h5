@@ -110,15 +110,16 @@ body{
   margin-bottom:16px;
 }
 
-/* ---------- ② 首图 Live（全屏英雄区：视频满宽居中，标题沉底） ---------- */
+/* ---------- ② 首图 Live（全屏英雄区：视频满宽居中，标题紧贴视频下方） ---------- */
 .module.live-module{
   padding:0;
   min-height:100vh;
   display:flex;
   flex-direction:column;
-  justify-content:center;   /* 视频纵向居中 */
+  justify-content:center;   /* 整组（花边+视频+标题）纵向居中 */
   align-items:center;
 }
+.live-hero{ width:100%; }
 .live-frame{
   position:relative;
   width:100vw;              /* 满视口宽：边缘即屏幕边缘（挣脱 .card 宽度约束） */
@@ -133,10 +134,28 @@ body{
   box-shadow:none;          /* 去阴影 */
   border:none;              /* 去白边 */
 }
+/* 视频上下花边：与暖橘绘本风格契合的虚线 + 小 motif */
+.live-edge{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  height:34px;
+  color:var(--accent);
+  font-size:15px;
+  position:relative;
+}
+.live-edge span:nth-child(2n){ color:var(--accent-2); }   /* 交替暖珊瑚/奶油黄 */
+.live-edge::before,
+.live-edge::after{
+  content:"";
+  flex:1;
+  max-width:34%;
+  border-top:2px dashed var(--line);
+}
 .live-caption{
-  position:absolute;
-  left:0; right:0; bottom:8vh;   /* 标题沉到页面下方 */
-  padding:0 24px;
+  text-align:center;
+  padding:14px 24px 0;      /* 紧贴视频下花边下方 */
 }
 .live-module .ai-title,
 .live-module .ai-title-sub,
