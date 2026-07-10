@@ -120,13 +120,21 @@ body{
   letter-spacing:2px; animation:bob 2s ease-in-out infinite; }
 @keyframes bob{ 50%{ transform:translateY(4px); } }
 
-/* ---------- ② 封面照 ---------- */
+/* ---------- ② 封面照：木夹夹在麻绳上，随风微晃 ---------- */
 .cover{ padding-top:var(--sp-8); padding-bottom:var(--sp-3); }
-.polaroid{ position:relative; width:78%; max-width:290px; margin:0 auto; background:#fff;
+.clothesline{ position:relative; width:118%; left:-9%; height:2px; margin-bottom:-6px; z-index:2;
+  background:linear-gradient(90deg, transparent, #a88a5e 12%, #a88a5e 88%, transparent);
+  transform:rotate(-1deg); }
+.hang-photo{ position:relative; width:78%; max-width:290px; margin:0 auto;
+  transform-origin:top center; animation:sway2 6s ease-in-out infinite; }
+@keyframes sway2{ 0%,100%{ transform:rotate(1.6deg); } 50%{ transform:rotate(-1.6deg); } }
+.peg{ position:absolute; top:-7px; width:9px; height:20px; border-radius:3px; z-index:5;
+  background:linear-gradient(180deg,#d8a86a,#b6854e); box-shadow:0 2px 3px rgba(40,28,15,.3); }
+.peg-l{ left:20%; transform:rotate(-6deg); }
+.peg-r{ right:20%; transform:rotate(6deg); }
+.polaroid{ position:relative; width:100%; background:#fff;
   padding:10px 10px 0; border-radius:2px;
-  box-shadow:0 16px 40px rgba(51,40,25,.14); border:1px solid var(--line-2); }
-.tilt{ transform:rotate(-1.5deg); transition:transform .5s; }
-.tilt:hover{ transform:rotate(0deg) scale(1.015); }
+  box-shadow:0 16px 40px rgba(51,40,25,.18); border:1px solid var(--line-2); }
 .polaroid-img{ overflow:hidden; border-radius:1px; }
 .polaroid-img img{ width:100%; display:block; }
 .polaroid-cap{ padding:14px 4px 16px; display:flex; flex-direction:column; gap:4px; text-align:center; }
@@ -154,16 +162,26 @@ body{
 .t-text b{ color:var(--ink); font-weight:600; margin-right:4px; }
 .t-dur{ font-family:var(--f-serif); font-size:12px; color:var(--ink-dim); letter-spacing:.5px; }
 
-/* ---------- ④ 短诗（极简卡片，无邮票邮戳） ---------- */
-.note{ padding-top:var(--sp-8); }
-.postcard{ position:relative; background:var(--panel); color:var(--ink); border-radius:6px;
-  padding:var(--sp-6) var(--sp-5); box-shadow:0 10px 30px rgba(51,40,25,.08); border:1px solid var(--line-2); }
-.postcard-stamp{ display:none; }
-.postmark{ display:none; }
-.poem{ font-family:var(--f-cn); font-weight:400; font-size:16px; line-height:2.1; color:var(--ink);
-  letter-spacing:.5px; }
-.postcard-foot{ margin-top:var(--sp-5); text-align:right; }
-.hand-sign{ font-family:var(--f-hand); font-weight:600; font-size:19px; color:var(--accent); }
+/* ---------- ④ 短诗：吊在树枝上的木牌，随风摆动 ---------- */
+.note{ padding-top:calc(var(--sp-8) + 10px); }
+.woodhook{ position:relative; width:60%; left:20%; height:12px; margin-bottom:-2px; z-index:2;
+  background:linear-gradient(180deg,#6b5238,#4a3826); border-radius:6px; transform:rotate(1deg);
+  box-shadow:0 3px 7px rgba(40,28,15,.25); }
+.woodsign{ position:relative; width:100%; max-width:340px; margin:0 auto;
+  transform-origin:top center; animation:sway 6.5s ease-in-out infinite; }
+.wrope-l{ left:24%; transform:rotate(6deg); }
+.wrope-r{ right:24%; transform:rotate(-6deg); }
+.woodsign-plank{ position:relative; margin-top:40px; padding:var(--sp-6) var(--sp-5);
+  border-radius:8px; color:#f3ead6;
+  background:linear-gradient(180deg,#7a5c3c,#5f4630);
+  background-image:repeating-linear-gradient(90deg, rgba(0,0,0,.05) 0 3px, transparent 3px 9px),
+                   linear-gradient(180deg,#7a5c3c,#5f4630);
+  box-shadow:0 16px 34px rgba(40,28,15,.35), inset 0 1px 2px rgba(255,225,170,.2);
+  border:1px solid rgba(40,28,15,.3); }
+.poem{ font-family:var(--f-cn); font-weight:400; font-size:16px; line-height:2.1; color:#f3ead6;
+  letter-spacing:.5px; text-shadow:0 1px 2px rgba(0,0,0,.3); }
+.poem-sign{ margin-top:var(--sp-4); text-align:right; font-family:var(--f-hand); font-weight:600;
+  font-size:19px; color:#e6c98f; }
 
 /* ---------- ⑤ 风格化 ---------- */
 .art{ padding-top:var(--sp-8); }
