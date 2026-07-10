@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>山顶那个下午 · Moment</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;700;800&family=Noto+Sans+SC:wght@400;500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=1" />
+</head>
+<body>
+
+<!-- 清新户外氛围：飘落的叶子 + 阳光 + 小鸟（AI 自动设计：主题=晴天·山顶·秋千） -->
+<div class="ambient" aria-hidden="true">
+  <span class="sun"></span>
+  <span class="cloud cloud-1"></span>
+  <span class="cloud cloud-2"></span>
+  <span class="leaf" style="--x:10%;--d:0s;--s:1">🍃</span>
+  <span class="leaf" style="--x:34%;--d:4s;--s:.8">🍃</span>
+  <span class="leaf" style="--x:60%;--d:2s;--s:1.1">🌿</span>
+  <span class="leaf" style="--x:82%;--d:6s;--s:.9">🍃</span>
+  <span class="leaf" style="--x:48%;--d:8s;--s:.7">🌿</span>
+  <span class="bird" style="--y:16%;--d:1s">🕊️</span>
+</div>
+
+<main class="card">
+
+  <!-- ① Hero：高光视频 + AI 标题 -->
+  <section class="module hero">
+    <div class="hero-top">
+      <span class="kicker">今天的高光时刻</span>
+      <span class="chip">☀️ 晴 · 山顶 · 微风</span>
+    </div>
+    <div class="video-wrap">
+      <span class="deco-sticker s-swing">🌳</span>
+      <video id="liveVideo" class="video" playsinline loop muted
+             poster="assets/hero.jpg" preload="metadata">
+        <source src="assets/live.mp4" type="video/mp4" />
+      </video>
+      <div class="live-badge"><i></i>LIVE · 12s</div>
+      <button id="soundBtn" class="icon-btn sound" aria-label="声音">🔈</button>
+      <button id="playBtn" class="play" aria-label="播放">▶</button>
+      <div class="v-caption">荡起来那一下，风把笑声也带走了</div>
+    </div>
+    <h1 class="ai-title">山顶那个下午<span>风、树影，还有你们</span></h1>
+    <div class="scroll-hint">往下滑，回到那阵风里 ↓</div>
+  </section>
+
+  <!-- ② 封面照 -->
+  <section class="module cover">
+    <div class="sec-tag">📸 定格的那一张</div>
+    <div class="polaroid tilt">
+      <span class="deco-sticker s-sun">🌞</span>
+      <div class="polaroid-img"><img src="assets/hero.jpg" alt="山顶合影" /></div>
+      <div class="polaroid-cap">
+        <span class="hand">这天天气好得不像话</span>
+        <span class="date">2024 · 好天气</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ③ 对话音频 -->
+  <section class="module audio">
+    <div class="sec-tag">🎙 那天的声音，点开听</div>
+    <div class="tracks">
+      <button class="track" data-src="assets/clips/c1.mp3">
+        <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="t-text"><b>坐稳了啊——</b>我要推咯 😆</span>
+        <span class="t-dur">0:04</span>
+      </button>
+      <button class="track" data-src="assets/clips/c2.mp3">
+        <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="t-text"><b>再高一点！</b>哈哈哈别停</span>
+        <span class="t-dur">0:04</span>
+      </button>
+      <button class="track" data-src="assets/clips/c3.mp3">
+        <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="t-text"><b>这风景绝了</b>快看那边的海</span>
+        <span class="t-dur">0:04</span>
+      </button>
+      <button class="track" data-src="assets/clips/c4.mp3">
+        <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
+        <span class="t-text"><b>今天真的太爽了</b>下次还来</span>
+        <span class="t-dur">0:04</span>
+      </button>
+    </div>
+    <audio id="clipAudio" preload="none"></audio>
+  </section>
+
+  <!-- ④ AI 短文字：一张明信片 -->
+  <section class="module note">
+    <div class="sec-tag">✍ AI 替这个下午写了张明信片</div>
+    <div class="postcard">
+      <div class="postcard-stamp">☀️</div>
+      <p class="poem">
+        山顶的风很大，<br/>
+        大到能把烦恼吹跑。<br/>
+        你在秋千上荡得老高，<br/>
+        我们在树下笑得前仰后合——<br/>
+        这样的下午，值得记很久。
+      </p>
+      <div class="postcard-foot">
+        <span class="hand-sign">—— Moment 写于山顶</span>
+      </div>
+      <div class="postmark">GOOD DAY</div>
+    </div>
+  </section>
+
+  <!-- ⑤ 风格化 -->
+  <section class="module art">
+    <div class="sec-tag">🎨 这一帧，换个画风</div>
+    <div class="art-frame">
+      <img src="assets/hero.jpg" alt="风格化" class="art-img" />
+      <div class="art-scrim"></div>
+      <span class="art-cap">清透水彩风 · highlight</span>
+    </div>
+  </section>
+
+  <!-- ⑥ 品牌 + AI 设计说明 -->
+  <footer class="foot">
+    <div class="brand">Moment</div>
+    <div class="brand-tag">值得留住的每一天</div>
+    <details class="ai-note">
+      <summary>✨ 这张卡由 AI 为这个下午设计</summary>
+      <div class="ai-note-body">
+        <div class="ai-row"><span>场景</span><b>户外 · 山顶树林</b></div>
+        <div class="ai-row"><span>天气</span><b>大晴天 · 微风</b></div>
+        <div class="ai-row"><span>关键词</span><b>秋千 · 朋友 · 大笑</b></div>
+        <div class="ai-row"><span>情绪</span><b>自由 · 松弛 · 治愈</b></div>
+        <div class="ai-row"><span>配色</span><b>天空蓝 + 鼠尾草绿 + 暖阳金</b></div>
+      </div>
+    </details>
+    <div class="tap-hint">点这里，再荡一次秋千 🌳</div>
+  </footer>
+
+</main>
+
+<div id="fx" class="fx" aria-hidden="true"></div>
+
+<script src="app.js?v=1"></script>
+</body>
+</html>

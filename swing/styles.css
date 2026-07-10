@@ -1,0 +1,223 @@
+/* =========================================================
+   山顶那个下午 · Moment  ——  清新户外 · 晴天 · 树藤秋千
+   模块：视频 / 封面照 / 对话音频 / 短诗明信片 / 风格化 / 品牌
+   风格：天空蓝 + 鼠尾草绿 + 暖阳金，自然有机，阳光治愈
+   （刻意区别于前作：家庭暖绘本 / 烧烤夜暖光）
+   ========================================================= */
+
+:root{
+  --sky:      #eaf6fb;   /* 天空浅蓝底 */
+  --sky-2:    #cfeaf5;
+  --panel:    #ffffff;
+  --ink:      #2f4a44;   /* 墨绿灰 */
+  --ink-soft: #7d9690;
+  --blue:     #4aa3d4;   /* 天空蓝（主强调） */
+  --blue-2:   #7fc4e8;
+  --sage:     #7cae7a;   /* 鼠尾草绿 */
+  --sun:      #f6c453;   /* 暖阳金 */
+  --coral:    #f28a6c;   /* 暖珊瑚点缀 */
+  --line:     rgba(47,74,68,.12);
+  --card-w:   440px;
+
+  --f-round: "Baloo 2", "PingFang SC", sans-serif;   /* 圆润标题 */
+  --f-cn:    "Noto Sans SC", "PingFang SC", sans-serif;
+  --f-hand:  "Caveat", "PingFang SC", cursive;
+}
+
+*{ box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
+html,body{ background:var(--sky); }
+body{
+  font-family:var(--f-cn);
+  color:var(--ink);
+  display:flex; justify-content:center;
+  min-height:100vh;
+  background:
+    linear-gradient(180deg, #d3ecf7 0%, var(--sky) 42%, #f3faf3 100%);
+  overflow-x:hidden;
+}
+
+/* ---------- 户外氛围：太阳 / 云 / 落叶 / 飞鸟 ---------- */
+.ambient{ position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;
+  max-width:var(--card-w); margin:0 auto; }
+.sun{ position:absolute; top:36px; right:26px; width:70px; height:70px; border-radius:50%;
+  background:radial-gradient(circle, #ffe08a, var(--sun)); opacity:.7;
+  box-shadow:0 0 50px rgba(246,196,83,.7); animation:pulse 4s ease-in-out infinite; }
+@keyframes pulse{ 50%{ transform:scale(1.08); opacity:.9; } }
+.cloud{ position:absolute; height:26px; border-radius:20px; background:rgba(255,255,255,.85);
+  filter:blur(1px); }
+.cloud::before{ content:""; position:absolute; top:-12px; left:16px; width:34px; height:34px;
+  border-radius:50%; background:inherit; }
+.cloud-1{ top:90px; left:-40px; width:90px; animation:drift 22s linear infinite; }
+.cloud-2{ top:150px; right:-60px; width:70px; opacity:.7; animation:drift 30s linear infinite reverse; }
+@keyframes drift{ 0%{ transform:translateX(0); } 100%{ transform:translateX(120px); } }
+.leaf{ position:absolute; top:-30px; left:var(--x); font-size:calc(22px*var(--s)); opacity:0;
+  animation:leafFall 12s linear infinite; animation-delay:var(--d); }
+@keyframes leafFall{
+  0%{ transform:translateY(0) rotate(0) translateX(0); opacity:0; }
+  10%{ opacity:.9; }
+  50%{ transform:translateY(52vh) rotate(180deg) translateX(28px); }
+  90%{ opacity:.9; }
+  100%{ transform:translateY(112vh) rotate(400deg) translateX(-20px); opacity:0; }
+}
+.bird{ position:absolute; top:var(--y); left:-40px; font-size:20px;
+  animation:fly 18s linear infinite; animation-delay:var(--d); }
+@keyframes fly{ 0%{ transform:translateX(0) translateY(0); }
+  50%{ transform:translateX(52vw) translateY(-20px); }
+  100%{ transform:translateX(110vw) translateY(10px); } }
+
+/* ---------- 卡片主体 ---------- */
+.card{
+  position:relative; z-index:1;
+  width:100%; max-width:var(--card-w);
+  background:linear-gradient(180deg, rgba(255,255,255,.15), transparent 30%);
+  min-height:100vh;
+  padding-bottom:60px;
+  overflow:hidden;
+}
+.module{ position:relative; padding:0 22px; }
+.sec-tag{ font-family:var(--f-round); font-weight:700; font-size:16px;
+  color:var(--sage); letter-spacing:.3px;
+  margin:0 0 16px; display:flex; align-items:center; gap:6px; }
+
+/* 模块角落贴纸 */
+.deco-sticker{ position:absolute; z-index:8; pointer-events:none;
+  filter:drop-shadow(0 2px 3px rgba(47,74,68,.25)); }
+.s-swing{ top:-8px; right:14px; font-size:42px; transform:rotate(10deg); z-index:3; }
+.s-sun{ top:-16px; right:-8px; font-size:40px; transform:rotate(8deg); }
+
+/* ---------- ① Hero ---------- */
+.hero{ min-height:100vh; display:flex; flex-direction:column; justify-content:center;
+  padding-top:calc(env(safe-area-inset-top,0) + 40px); padding-bottom:24px; }
+.hero-top{ display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; }
+.kicker{ font-family:var(--f-round); font-weight:700; font-size:17px; color:var(--blue); }
+.chip{ font-family:var(--f-cn); font-size:12px; color:var(--ink); background:#fff;
+  border:1px solid var(--line); padding:5px 10px; border-radius:20px;
+  box-shadow:0 2px 6px rgba(47,74,68,.08); }
+
+.video-wrap{ position:relative; width:100%; aspect-ratio:9/16; max-height:62vh;
+  margin:0 auto; border-radius:22px; overflow:hidden; background:#000; align-self:center;
+  box-shadow:0 18px 44px rgba(74,163,212,.3), 0 0 0 5px #fff, 0 0 0 7px var(--blue-2); }
+.video{ width:100%; height:100%; object-fit:cover; display:block; }
+.live-badge{ position:absolute; top:14px; left:14px; display:flex; align-items:center; gap:6px;
+  font-family:var(--f-cn); font-weight:700; font-size:12px; color:#fff;
+  background:var(--coral); padding:5px 11px; border-radius:20px;
+  box-shadow:0 3px 8px rgba(242,138,108,.4); }
+.live-badge i{ width:7px; height:7px; border-radius:50%; background:#fff; animation:blink 1.2s infinite; }
+@keyframes blink{ 50%{ opacity:.3; } }
+.icon-btn{ position:absolute; border:none; cursor:pointer; border-radius:50%;
+  background:rgba(255,255,255,.9); color:var(--ink); box-shadow:0 3px 8px rgba(0,0,0,.15); }
+.sound{ top:12px; right:12px; width:40px; height:40px; font-size:17px; }
+.play{ position:absolute; inset:0; margin:auto; width:72px; height:72px; border-radius:50%;
+  border:none; cursor:pointer; font-size:26px; color:#fff;
+  background:radial-gradient(circle at 35% 30%, var(--blue-2), var(--blue));
+  box-shadow:0 8px 24px rgba(74,163,212,.5);
+  display:flex; align-items:center; justify-content:center; padding-left:4px;
+  transition:opacity .3s, transform .2s; }
+.play.hidden{ opacity:0; pointer-events:none; transform:scale(.6); }
+.play:active{ transform:scale(.9); }
+.v-caption{ position:absolute; left:0; right:0; bottom:0; padding:28px 14px 14px;
+  font-family:var(--f-cn); font-size:14px; color:#fff; text-align:center;
+  text-shadow:0 1px 6px rgba(0,0,0,.5);
+  background:linear-gradient(transparent, rgba(0,0,0,.5)); }
+
+.ai-title{ font-family:var(--f-round); font-weight:800; font-size:34px; line-height:1.25;
+  text-align:center; margin:24px 0 0; color:var(--ink); letter-spacing:.5px; }
+.ai-title span{ display:block; font-family:var(--f-cn); font-weight:500; font-size:15px;
+  color:var(--ink-soft); letter-spacing:1px; margin-top:10px; }
+.scroll-hint{ text-align:center; margin-top:22px; font-size:13px; color:var(--blue);
+  letter-spacing:1px; animation:bob 1.8s ease-in-out infinite; }
+@keyframes bob{ 50%{ transform:translateY(5px); } }
+
+/* ---------- ② 封面拍立得 ---------- */
+.cover{ padding-top:64px; padding-bottom:12px; }
+.polaroid{ width:82%; max-width:300px; margin:0 auto; background:#fff; padding:12px 12px 0;
+  border-radius:4px; box-shadow:0 18px 40px rgba(74,163,212,.24); }
+.tilt{ transform:rotate(-2.5deg); transition:transform .4s; }
+.tilt:hover{ transform:rotate(0deg) scale(1.02); }
+.polaroid-img{ overflow:hidden; border-radius:2px; }
+.polaroid-img img{ width:100%; display:block; }
+.polaroid-cap{ padding:14px 4px 18px; display:flex; flex-direction:column; gap:4px; text-align:center; }
+.polaroid-cap .hand{ font-family:var(--f-hand); font-weight:700; color:#2f4a44; font-size:22px; }
+.polaroid-cap .date{ font-family:var(--f-round); font-size:13px; letter-spacing:1px; color:#a5bcb6; }
+
+/* ---------- ③ 对话音频 ---------- */
+.audio{ padding-top:56px; }
+.tracks{ display:flex; flex-direction:column; gap:12px; }
+.track{ display:flex; align-items:center; gap:14px; width:100%; text-align:left; cursor:pointer;
+  background:var(--panel); border:1px solid var(--line); border-radius:14px; padding:14px 16px;
+  color:var(--ink); transition:border-color .25s, transform .15s, box-shadow .25s;
+  box-shadow:0 3px 10px rgba(74,163,212,.06); }
+.track:active{ transform:scale(.98); }
+.track.playing{ border-color:var(--blue); box-shadow:0 4px 18px rgba(74,163,212,.28); }
+.wave{ display:flex; align-items:center; gap:3px; height:26px; flex-shrink:0; width:34px; }
+.wave i{ width:3px; height:8px; border-radius:2px; background:var(--blue); opacity:.5; transition:height .2s; }
+.track.playing .wave i{ animation:eq .8s ease-in-out infinite; opacity:1; }
+.track.playing .wave i:nth-child(2){ animation-delay:.15s; }
+.track.playing .wave i:nth-child(3){ animation-delay:.3s; }
+.track.playing .wave i:nth-child(4){ animation-delay:.1s; }
+.track.playing .wave i:nth-child(5){ animation-delay:.25s; }
+@keyframes eq{ 0%,100%{ height:7px; } 50%{ height:24px; } }
+.t-text{ flex:1; font-size:14px; line-height:1.5; }
+.t-text b{ color:var(--sage); font-weight:700; margin-right:4px; }
+.t-dur{ font-family:var(--f-round); font-size:13px; color:var(--ink-soft); letter-spacing:.5px; }
+
+/* ---------- ④ 短诗明信片 ---------- */
+.note{ padding-top:60px; }
+.postcard{ position:relative; background:#fffdf6; color:#3a4a44; border-radius:10px;
+  padding:22px 22px 20px; box-shadow:0 14px 36px rgba(74,163,212,.2);
+  border:1px solid #efe8d6; }
+.postcard::after{ content:""; position:absolute; top:12px; bottom:12px; left:50%;
+  border-left:1.5px dashed #dfe6d8; opacity:0; }
+.postcard-stamp{ position:absolute; top:14px; right:16px; width:40px; height:46px;
+  display:flex; align-items:center; justify-content:center; font-size:22px;
+  background:#fff; border:2px dashed var(--sun); border-radius:4px; transform:rotate(4deg); }
+.poem{ font-family:var(--f-cn); font-weight:500; font-size:16px; line-height:1.95; color:#3a4a44;
+  padding-right:44px; }
+.postcard-foot{ margin-top:16px; }
+.hand-sign{ font-family:var(--f-hand); font-weight:700; font-size:20px; color:var(--blue); }
+.postmark{ position:absolute; bottom:16px; right:18px; font-family:var(--f-round); font-weight:700;
+  font-size:13px; letter-spacing:1px; color:var(--coral); border:2px solid var(--coral);
+  border-radius:20px; padding:3px 10px; transform:rotate(-6deg); opacity:.8; }
+
+/* ---------- ⑤ 风格化 ---------- */
+.art{ padding-top:60px; }
+.art-frame{ position:relative; border-radius:16px; overflow:hidden; box-shadow:0 14px 36px rgba(74,163,212,.22); }
+.art-img{ width:100%; display:block; filter:saturate(1.3) contrast(1.05) brightness(1.06); }
+.art-scrim{ position:absolute; inset:0; mix-blend-mode:soft-light;
+  background:linear-gradient(135deg, rgba(124,174,122,.6), transparent 45%, rgba(74,163,212,.55)); }
+.art-cap{ position:absolute; left:12px; bottom:12px; font-family:var(--f-round); font-weight:700;
+  font-size:14px; color:#fff; background:rgba(74,163,212,.8); padding:4px 12px; border-radius:20px; }
+
+/* ---------- ⑥ 品牌页脚 ---------- */
+.foot{ text-align:center; padding:64px 22px 0; position:relative; z-index:1; }
+.brand{ font-family:var(--f-round); font-weight:800; font-size:30px; letter-spacing:3px; color:var(--blue); }
+.brand-tag{ font-size:13px; color:var(--ink-soft); margin-top:4px; letter-spacing:1px; }
+.ai-note{ margin:26px auto 0; max-width:330px; text-align:left; background:var(--panel);
+  border:1px solid var(--line); border-radius:14px; overflow:hidden;
+  box-shadow:0 4px 14px rgba(74,163,212,.08); }
+.ai-note summary{ cursor:pointer; padding:14px 16px; font-size:15px; color:var(--sage);
+  list-style:none; font-family:var(--f-round); font-weight:700; }
+.ai-note summary::-webkit-details-marker{ display:none; }
+.ai-note-body{ padding:4px 16px 14px; }
+.ai-row{ display:flex; justify-content:space-between; padding:8px 0; border-bottom:1px dashed var(--line); font-size:14px; }
+.ai-row:last-child{ border-bottom:none; }
+.ai-row span{ color:var(--ink-soft); }
+.ai-row b{ color:var(--ink); font-weight:500; }
+.tap-hint{ margin-top:26px; font-size:14px; color:var(--blue); letter-spacing:1px;
+  font-family:var(--f-round); font-weight:700; cursor:pointer; }
+
+/* ---------- 落叶彩蛋 ---------- */
+.fx{ position:fixed; inset:0; pointer-events:none; z-index:50; overflow:hidden; }
+.fx .drop{ position:absolute; font-size:26px; animation:drop 1.6s ease-in forwards; }
+@keyframes drop{ 0%{ transform:translateY(-40px) rotate(0); opacity:0; }
+  15%{ opacity:1; } 100%{ transform:translateY(105vh) rotate(360deg); opacity:0; } }
+
+/* ---------- 桌面预览 ---------- */
+@media (min-width:480px){
+  body{ align-items:center; padding:24px 0; }
+  .card{ border-radius:40px; min-height:auto; max-height:96vh; overflow-y:auto;
+    border:10px solid #2a2622; box-shadow:0 30px 70px rgba(0,0,0,.4); }
+  .ambient{ display:none; }
+  .hero{ min-height:auto; padding-top:40px; }
+  .video-wrap{ max-height:none; }
+}
