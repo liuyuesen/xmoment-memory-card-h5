@@ -141,26 +141,40 @@ body{
 .polaroid-cap .hand{ font-family:var(--f-hand); font-weight:600; color:#4a453b; font-size:22px; }
 .polaroid-cap .date{ font-family:var(--f-serif); font-size:12px; letter-spacing:2px; color:var(--ink-dim); }
 
-/* ---------- ③ 对话音频 ---------- */
+/* ---------- ③ 对话音频：挂在绳上随风翻动的小纸条，点一下翻+播放 ---------- */
 .audio{ padding-top:var(--sp-8); }
-.tracks{ display:flex; flex-direction:column; gap:var(--sp-2); }
-.track{ display:flex; align-items:center; gap:14px; width:100%; text-align:left; cursor:pointer;
-  background:transparent; border:none; border-bottom:1px solid var(--line); border-radius:0;
-  padding:14px 4px; color:var(--ink); transition:opacity .2s; }
-.track:last-child{ border-bottom:none; }
-.track:active{ opacity:.6; }
-.track.playing{ }
+.noteline{ position:relative; width:118%; left:-9%; height:2px; margin-bottom:var(--sp-5); z-index:1;
+  background:linear-gradient(90deg, transparent, #a88a5e 10%, #a88a5e 90%, transparent);
+  transform:rotate(-.6deg); }
+.notes{ display:flex; flex-direction:column; gap:var(--sp-4); }
+.note-slip{ position:relative; display:flex; align-items:center; gap:14px; width:92%; text-align:left;
+  cursor:pointer; margin-top:-14px;
+  background:#fbf6ea; border:1px solid rgba(120,90,50,.16); border-radius:4px;
+  padding:14px 16px; color:var(--ink);
+  box-shadow:0 8px 18px rgba(51,40,25,.14);
+  transform-origin:top center; transform:rotate(var(--r,0));
+  animation:flutter 5s ease-in-out infinite; animation-delay:var(--dl,0s); }
+.note-slip:nth-child(even){ align-self:flex-end; }
+@keyframes flutter{ 0%,100%{ transform:rotate(var(--r,0)); } 50%{ transform:rotate(calc(var(--r,0) * -.4)) translateY(2px); } }
+.note-slip:active{ transform:rotate(0) scale(.99); }
+.note-slip.playing{ animation-play-state:paused; transform:rotate(0);
+  box-shadow:0 10px 24px rgba(166,138,91,.35); border-color:var(--accent); }
+/* 纸条上方的小木夹 */
+.clip-pin{ position:absolute; top:-9px; left:50%; margin-left:-6px; width:12px; height:18px;
+  border-radius:3px; background:linear-gradient(180deg,#d8a86a,#b6854e);
+  box-shadow:0 2px 3px rgba(40,28,15,.3); }
 .wave{ display:flex; align-items:center; gap:3px; height:22px; flex-shrink:0; width:30px; }
 .wave i{ width:2px; height:6px; border-radius:2px; background:var(--ink-dim); transition:height .2s; }
-.track.playing .wave i{ background:var(--accent); animation:eq .8s ease-in-out infinite; }
-.track.playing .wave i:nth-child(2){ animation-delay:.15s; }
-.track.playing .wave i:nth-child(3){ animation-delay:.3s; }
-.track.playing .wave i:nth-child(4){ animation-delay:.1s; }
-.track.playing .wave i:nth-child(5){ animation-delay:.25s; }
+.note-slip.playing .wave i{ background:var(--accent); animation:eq .8s ease-in-out infinite; }
+.note-slip.playing .wave i:nth-child(2){ animation-delay:.15s; }
+.note-slip.playing .wave i:nth-child(3){ animation-delay:.3s; }
+.note-slip.playing .wave i:nth-child(4){ animation-delay:.1s; }
+.note-slip.playing .wave i:nth-child(5){ animation-delay:.25s; }
 @keyframes eq{ 0%,100%{ height:5px; } 50%{ height:20px; } }
 .t-text{ flex:1; font-size:14px; line-height:1.5; color:var(--ink-soft); }
 .t-text b{ color:var(--ink); font-weight:600; margin-right:4px; }
-.t-dur{ font-family:var(--f-serif); font-size:12px; color:var(--ink-dim); letter-spacing:.5px; }
+.t-play{ font-size:12px; color:var(--accent); flex-shrink:0; }
+.note-slip.playing .t-play{ opacity:.4; }
 
 /* ---------- ④ 短诗：吊在树枝上的木牌，随风摆动 ---------- */
 .note{ padding-top:calc(var(--sp-8) + 10px); }

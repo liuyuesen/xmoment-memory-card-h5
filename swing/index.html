@@ -62,29 +62,34 @@
     </div>
   </section>
 
-  <!-- ③ 对话音频 -->
+  <!-- ③ 对话音频：几张挂在绳上随风翻动的小纸条，点一下翻一下并播放 -->
   <section class="module audio">
-    <div class="sec-tag">🎙 那天的声音，点开听</div>
-    <div class="tracks">
-      <button class="track" data-src="assets/clips/c1.mp3">
+    <div class="sec-tag">🎙 挂在风里的几句话</div>
+    <div class="noteline" aria-hidden="true"></div>
+    <div class="notes">
+      <button class="track note-slip" data-src="assets/clips/c1.mp3" style="--r:-2deg;--dl:0s">
+        <span class="clip-pin" aria-hidden="true"></span>
         <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
         <span class="t-text"><b>坐稳了啊——</b>我要推咯 😆</span>
-        <span class="t-dur">0:04</span>
+        <span class="t-play">▶</span>
       </button>
-      <button class="track" data-src="assets/clips/c2.mp3">
+      <button class="track note-slip" data-src="assets/clips/c2.mp3" style="--r:2.5deg;--dl:.4s">
+        <span class="clip-pin" aria-hidden="true"></span>
         <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
         <span class="t-text"><b>再高一点！</b>哈哈哈别停</span>
-        <span class="t-dur">0:04</span>
+        <span class="t-play">▶</span>
       </button>
-      <button class="track" data-src="assets/clips/c3.mp3">
+      <button class="track note-slip" data-src="assets/clips/c3.mp3" style="--r:-1.5deg;--dl:.8s">
+        <span class="clip-pin" aria-hidden="true"></span>
         <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
         <span class="t-text"><b>这风景绝了</b>快看那边的海</span>
-        <span class="t-dur">0:04</span>
+        <span class="t-play">▶</span>
       </button>
-      <button class="track" data-src="assets/clips/c4.mp3">
+      <button class="track note-slip" data-src="assets/clips/c4.mp3" style="--r:2deg;--dl:1.2s">
+        <span class="clip-pin" aria-hidden="true"></span>
         <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
         <span class="t-text"><b>今天真的太爽了</b>下次还来</span>
-        <span class="t-dur">0:04</span>
+        <span class="t-play">▶</span>
       </button>
     </div>
     <audio id="clipAudio" preload="none"></audio>
