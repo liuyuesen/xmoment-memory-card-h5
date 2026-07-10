@@ -64,6 +64,25 @@ body{
   100%{ transform:translateY(108vh) rotate(540deg); opacity:0; }
 }
 
+/* 聚餐主题飘落贴纸 */
+.sticker-drop{ position:absolute; top:-30px; left:var(--x);
+  font-size:calc(26px*var(--s)); opacity:0;
+  filter:drop-shadow(0 3px 4px rgba(120,80,40,.25));
+  animation:stickerFall 11s linear infinite; animation-delay:var(--d); }
+@keyframes stickerFall{
+  0%{ transform:translateY(0) rotate(-10deg); opacity:0; }
+  10%{ opacity:.9; }
+  90%{ opacity:.9; }
+  100%{ transform:translateY(110vh) rotate(30deg); opacity:0; }
+}
+
+/* 模块角落静态贴纸（像手贴上去的，带投影+微旋转） */
+.deco-sticker{ position:absolute; z-index:8; font-size:38px; pointer-events:none;
+  filter:drop-shadow(0 2px 3px rgba(120,80,40,.3)); }
+.s-skewer{ top:-8px; right:14px; transform:rotate(14deg); font-size:44px; z-index:3; }
+.s-cheers{ top:-20px; right:-8px; transform:rotate(12deg); }
+.s-beer{ top:42px; right:16px; transform:rotate(-10deg); font-size:34px; }
+
 /* ---------- 卡片主体 ---------- */
 .card{
   position:relative; z-index:1;
