@@ -25,15 +25,21 @@
       <span class="kicker">今天的高光时刻</span>
       <span class="chip">☀️ 晴 · 山顶 · 微风</span>
     </div>
-    <div class="video-wrap">
-      <video id="liveVideo" class="video" playsinline loop muted
-             poster="assets/hero.jpg" preload="metadata">
-        <source src="assets/live.mp4" type="video/mp4" />
-      </video>
-      <div class="live-badge"><i></i>LIVE · 12s</div>
-      <button id="soundBtn" class="icon-btn sound" aria-label="声音">🔈</button>
-      <button id="playBtn" class="play" aria-label="播放">▶</button>
-      <div class="v-caption">荡起来那一下，风把笑声也带走了</div>
+    <!-- 视频做成一架吊在树枝上的秋千：树枝 + 两根绳 + 微微摇晃 -->
+    <div class="branch" aria-hidden="true"></div>
+    <div class="swing">
+      <span class="rope rope-l" aria-hidden="true"></span>
+      <span class="rope rope-r" aria-hidden="true"></span>
+      <div class="video-wrap">
+        <video id="liveVideo" class="video" playsinline loop muted
+               poster="assets/hero.jpg" preload="metadata">
+          <source src="assets/live.mp4" type="video/mp4" />
+        </video>
+        <div class="live-badge"><i></i>LIVE · 12s</div>
+        <button id="soundBtn" class="icon-btn sound" aria-label="声音">🔈</button>
+        <button id="playBtn" class="play" aria-label="播放">▶</button>
+        <div class="v-caption">荡起来那一下，风把笑声也带走了</div>
+      </div>
     </div>
     <h1 class="ai-title">山顶那个下午<span>风、树影，还有你们</span></h1>
     <div class="scroll-hint">往下滑，回到那阵风里 ↓</div>

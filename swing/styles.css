@@ -40,8 +40,8 @@ body{
 .ambient{ position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden;
   max-width:var(--card-w); margin:0 auto; }
 .glow{ position:absolute; border-radius:50%; filter:blur(90px); opacity:.35; }
-.glow-1{ width:300px; height:300px; background:#e8dcc2; top:-80px; right:-90px; }
-.glow-2{ width:260px; height:260px; background:#d9e0d5; bottom:10%; left:-100px; opacity:.3; }
+.glow-1{ width:340px; height:340px; background:#f0d9a8; top:-90px; right:-80px; opacity:.5; }  /* 黄昏斜阳 */
+.glow-2{ width:280px; height:280px; background:#cdd8c6; bottom:8%; left:-110px; opacity:.35; }  /* 树影冷调 */
 
 /* ---------- 卡片主体 ---------- */
 .card{
@@ -65,11 +65,33 @@ body{
 .chip{ font-family:var(--f-cn); font-size:12px; color:var(--ink-soft); background:transparent;
   border:1px solid var(--line); padding:4px 12px; border-radius:20px; letter-spacing:1px; }
 
-/* 视频：极细单层描边 + 柔投影（无撞色粗框） */
-.video-wrap{ position:relative; width:100%; aspect-ratio:9/16; max-height:60vh;
-  margin:0 auto; border-radius:14px; overflow:hidden; background:#000; align-self:center;
-  border:1px solid rgba(255,255,255,.6);
-  box-shadow:0 20px 50px rgba(51,40,25,.18), 0 2px 6px rgba(51,40,25,.08); }
+/* === 视频 = 吊在树枝上的秋千（这段视频的专属设计） === */
+/* 顶部横过一根树枝 */
+.branch{ position:relative; width:112%; left:-6%; height:16px; margin:0 auto -2px;
+  background:linear-gradient(180deg, #6b5238, #4a3826);
+  border-radius:8px; transform:rotate(-1.2deg);
+  box-shadow:0 4px 10px rgba(40,28,15,.28), inset 0 2px 2px rgba(255,220,160,.25); z-index:4; }
+.branch::before{ content:""; position:absolute; right:8%; top:-9px; width:46px; height:16px;
+  border-radius:50%; background:#5a4530; transform:rotate(28deg); }  /* 小分叉 */
+.branch::after{ content:""; position:absolute; left:12%; top:-7px; width:32px; height:12px;
+  border-radius:50%; background:#5a4530; transform:rotate(-24deg); }
+
+/* 秋千整体：绳 + 座（视频），挂点在树枝，轻轻晃 */
+.swing{ position:relative; width:100%; max-width:340px; margin:0 auto;
+  transform-origin:top center; animation:sway 5.5s ease-in-out infinite; }
+@keyframes sway{ 0%,100%{ transform:rotate(1.4deg); } 50%{ transform:rotate(-1.4deg); } }
+.rope{ position:absolute; top:-4px; width:3px; height:44px; z-index:3;
+  background:linear-gradient(180deg, #b98d5a, #8a6a44);
+  background-image:repeating-linear-gradient(45deg, rgba(255,255,255,.18) 0 2px, transparent 2px 4px),
+                   linear-gradient(180deg, #b98d5a, #8a6a44); }
+.rope-l{ left:14px; transform:rotate(4deg); }
+.rope-r{ right:14px; transform:rotate(-4deg); }
+
+/* 视频座椅：木牌质感的暖白边 + 深投影，像一块挂着的木板 */
+.video-wrap{ position:relative; width:100%; aspect-ratio:9/16; max-height:58vh;
+  margin:40px auto 0; border-radius:14px; overflow:hidden; background:#000;
+  border:5px solid #f6efe2;
+  box-shadow:0 26px 44px rgba(51,40,25,.32), 0 3px 8px rgba(51,40,25,.12); }
 .video{ width:100%; height:100%; object-fit:cover; display:block; }
 .live-badge{ position:absolute; top:14px; left:14px; display:flex; align-items:center; gap:6px;
   font-family:var(--f-cn); font-weight:500; font-size:11px; color:#fff; letter-spacing:1px;
