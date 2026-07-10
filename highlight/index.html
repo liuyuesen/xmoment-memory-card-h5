@@ -3,23 +3,28 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<title>그 밤 · 干杯夜</title>
+<title>这顿，得干一杯 · Moment</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Noto+Serif+SC:wght@500;700&family=Bebas+Neue&display=swap" rel="stylesheet" />
-<link rel="stylesheet" href="styles.css?v=1" />
+<link href="https://fonts.googleapis.com/css2?family=ZCOOL+KuaiLe&family=Noto+Sans+SC:wght@400;500;700;900&family=Bebas+Neue&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="styles.css?v=2" />
 </head>
 <body>
 
-<!-- 夜店霓虹光斑 + 上浮的气泡（AI 自动设计：主题=夜·烧酒·热闹） -->
+<!-- 暖光聚会氛围：串灯 + 彩纸碎片（AI 自动设计：主题=热闹·聚餐·干杯） -->
 <div class="ambient" aria-hidden="true">
-  <span class="glow glow-amber"></span>
-  <span class="glow glow-cyan"></span>
-  <span class="bub" style="--x:12%;--d:0s;--s:.7"></span>
-  <span class="bub" style="--x:28%;--d:3.5s;--s:1.1"></span>
-  <span class="bub" style="--x:54%;--d:1.6s;--s:.5"></span>
-  <span class="bub" style="--x:72%;--d:5s;--s:.9"></span>
-  <span class="bub" style="--x:88%;--d:2.4s;--s:.6"></span>
+  <span class="glow glow-warm"></span>
+  <span class="glow glow-gold"></span>
+  <div class="string-lights">
+    <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span>
+    <span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span>
+    <span style="--i:6"></span><span style="--i:7"></span>
+  </div>
+  <span class="confetti" style="--x:14%;--d:0s;--c:var(--tomato)"></span>
+  <span class="confetti" style="--x:32%;--d:2.6s;--c:var(--gold)"></span>
+  <span class="confetti" style="--x:58%;--d:1.2s;--c:var(--leaf)"></span>
+  <span class="confetti" style="--x:76%;--d:4s;--c:var(--tomato)"></span>
+  <span class="confetti" style="--x:90%;--d:3s;--c:var(--gold)"></span>
 </div>
 
 <main class="card">
@@ -27,21 +32,20 @@
   <!-- ① Hero：高光视频 + AI 标题 -->
   <section class="module hero">
     <div class="hero-top">
-      <span class="kicker">TONIGHT'S HIGHLIGHT</span>
-      <span class="clock" id="clock">21:47</span>
+      <span class="kicker">今晚高光时刻</span>
+      <span class="chip">🍻 一桌人 · 一整晚</span>
     </div>
     <div class="video-wrap">
       <video id="liveVideo" class="video" playsinline loop muted
              poster="assets/hero.jpg" preload="metadata">
         <source src="assets/live.mp4" type="video/mp4" />
       </video>
-      <div class="scanline"></div>
       <div class="live-badge"><i></i>LIVE · 12s</div>
       <button id="soundBtn" class="icon-btn sound" aria-label="声音">🔈</button>
       <button id="playBtn" class="play" aria-label="播放">▶</button>
-      <div class="v-caption">건배 —— 为这一杯，也为这帮人</div>
+      <div class="v-caption">这一杯，敬这帮人 🍻</div>
     </div>
-    <h1 class="ai-title">그 밤, 우리<span>那一夜，我们都在</span></h1>
+    <h1 class="ai-title">这顿，得干一杯<span>好久没这么热闹过了</span></h1>
     <div class="scroll-hint">往下，把这场局倒回去 ↓</div>
   </section>
 
@@ -52,57 +56,57 @@
       <div class="polaroid-img"><img src="assets/hero.jpg" alt="聚餐合影" /></div>
       <div class="polaroid-cap">
         <span class="hand">好久没这么笑了</span>
-        <span class="date">2024 · 冬夜</span>
+        <span class="date">2024 · 那顿饭</span>
       </div>
     </div>
   </section>
 
-  <!-- ③ 对话音频：干杯声轨 -->
+  <!-- ③ 对话音频：现场声轨 -->
   <section class="module audio">
     <div class="sec-tag">🎙 那晚的声音，点开听</div>
     <div class="tracks">
       <button class="track" data-src="assets/clips/c1.mp3">
         <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
-        <span class="t-text"><b>건배!</b> 干杯！先走一个 🍻</span>
+        <span class="t-text"><b>来，干一个！</b>先走一个 🍻</span>
         <span class="t-dur">0:04</span>
       </button>
       <button class="track" data-src="assets/clips/c2.mp3">
         <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
-        <span class="t-text"><b>야 이거 진짜 맛있다</b> 这个也太好吃了</span>
+        <span class="t-text"><b>这个也太好吃了吧</b>再点一份</span>
         <span class="t-dur">0:04</span>
       </button>
       <button class="track" data-src="assets/clips/c3.mp3">
         <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
-        <span class="t-text"><b>한 잔 더?</b> 再来一杯？就一杯</span>
+        <span class="t-text"><b>再来一杯？</b>就一杯，就一杯</span>
         <span class="t-dur">0:04</span>
       </button>
       <button class="track" data-src="assets/clips/c4.mp3">
         <span class="wave"><i></i><i></i><i></i><i></i><i></i></span>
-        <span class="t-text"><b>오늘 진짜 좋다</b> 今晚真的，挺好的</span>
+        <span class="t-text"><b>今晚真的挺好的</b>下次还得聚</span>
         <span class="t-dur">0:04</span>
       </button>
     </div>
     <audio id="clipAudio" preload="none"></audio>
   </section>
 
-  <!-- ④ AI 短文字：不是诗，是那晚的一条记录 -->
+  <!-- ④ AI 短文字：一张点菜小票 -->
   <section class="module note">
-    <div class="sec-tag">✍ AI 替这场局记了一笔</div>
+    <div class="sec-tag">✍ AI 替这顿饭记了一笔</div>
     <div class="receipt">
       <div class="receipt-head">
-        <span>소주 BAR · 桌号 07</span>
-        <span>4 人</span>
+        <span>那顿饭 · 桌号 07</span>
+        <span>好久不见 ×4</span>
       </div>
       <p class="poem">
-        蓝瓶子空了一整排，<br/>
-        话题从工作聊到十八岁。<br/>
-        你举杯时先笑了，<br/>
-        碰一下——<br/>
-        今晚谁都不许提明天。
+        菜上了一桌，杯子碰了一圈，<br/>
+        话题从最近聊到当年。<br/>
+        你举杯的时候先笑了，<br/>
+        我们跟着起哄——<br/>
+        今晚谁也别提明天。
       </p>
       <div class="receipt-foot">
         <span>—— by Moment AI</span>
-        <span class="stamp">已付讫 · 快乐</span>
+        <span class="stamp">尽兴 · 已买单</span>
       </div>
     </div>
   </section>
@@ -113,25 +117,25 @@
     <div class="art-frame">
       <img src="assets/hero.jpg" alt="风格化" class="art-img" />
       <div class="art-scrim"></div>
-      <span class="art-cap">霓虹漫画风 · highlight</span>
+      <span class="art-cap">暖调漫画风 · highlight</span>
     </div>
   </section>
 
   <!-- ⑥ 品牌 + AI 设计说明 -->
   <footer class="foot">
     <div class="brand">Moment</div>
-    <div class="brand-tag">值得留住的每一夜</div>
+    <div class="brand-tag">值得留住的每一顿</div>
     <details class="ai-note">
-      <summary>✨ 这张卡由 AI 为这场局设计</summary>
+      <summary>✨ 这张卡由 AI 为这顿饭设计</summary>
       <div class="ai-note-body">
         <div class="ai-row"><span>场景</span><b>朋友聚餐 · 烧烤店</b></div>
-        <div class="ai-row"><span>时间</span><b>冬夜 · 微醺</b></div>
-        <div class="ai-row"><span>关键词</span><b>干杯 · 소주 · 大笑</b></div>
+        <div class="ai-row"><span>时间</span><b>晚上 · 热热闹闹</b></div>
+        <div class="ai-row"><span>关键词</span><b>干杯 · 撸串 · 大笑</b></div>
         <div class="ai-row"><span>情绪</span><b>热闹 · 松弛 · 尽兴</b></div>
-        <div class="ai-row"><span>配色</span><b>暗夜黑 + 炭火琥珀 + 烧酒蓝</b></div>
+        <div class="ai-row"><span>配色</span><b>暖光橙 + 番茄红 + 奶油底</b></div>
       </div>
     </details>
-    <div class="tap-hint">碰一碰卡片，回到那一夜</div>
+    <div class="tap-hint">点这里，再干一杯 🍻</div>
   </footer>
 
 </main>
@@ -139,6 +143,6 @@
 <!-- 干杯彩蛋层 -->
 <div id="cheers" class="cheers" aria-hidden="true"></div>
 
-<script src="app.js?v=1"></script>
+<script src="app.js?v=2"></script>
 </body>
 </html>
