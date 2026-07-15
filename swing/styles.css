@@ -23,6 +23,8 @@
   --f-hand:  "Caveat", "PingFang SC", cursive;
 
   --sp-2:8px; --sp-3:12px; --sp-4:16px; --sp-5:24px; --sp-6:32px; --sp-8:48px;
+  /* Figma/飞书规范：模块之间 120px，内部组件 16px，边距 16px */
+  --sp-module:120px; --sp-inner:16px; --sp-edge:16px;
 }
 
 *{ box-sizing:border-box; margin:0; padding:0; -webkit-tap-highlight-color:transparent; }
@@ -121,7 +123,7 @@ body{
 @keyframes bob{ 50%{ transform:translateY(4px); } }
 
 /* ---------- ② 封面照：木夹夹在麻绳上，随风微晃 ---------- */
-.cover{ padding-top:var(--sp-8); padding-bottom:var(--sp-3); }
+.cover{ padding-top:var(--sp-module); padding-bottom:0; }
 .clothesline{ position:relative; width:118%; left:-9%; height:2px; margin-bottom:-6px; z-index:2;
   background:linear-gradient(90deg, transparent, #a88a5e 12%, #a88a5e 88%, transparent);
   transform:rotate(-1deg); }
@@ -142,7 +144,7 @@ body{
 .polaroid-cap .date{ font-family:var(--f-serif); font-size:12px; letter-spacing:2px; color:var(--ink-dim); }
 
 /* ---------- ③ 对话音频：挂在绳上随风翻动的小纸条，点一下翻+播放 ---------- */
-.audio{ padding-top:var(--sp-8); }
+.audio{ padding-top:var(--sp-module); }
 .noteline{ position:relative; width:118%; left:-9%; height:2px; margin-bottom:var(--sp-5); z-index:1;
   background:linear-gradient(90deg, transparent, #a88a5e 10%, #a88a5e 90%, transparent);
   transform:rotate(-.6deg); }
@@ -177,7 +179,7 @@ body{
 .note-slip.playing .t-play{ opacity:.4; }
 
 /* ---------- ④ 短诗：吊在树枝上的木牌，随风摆动 ---------- */
-.note{ padding-top:calc(var(--sp-8) + 10px); }
+.note{ padding-top:var(--sp-module); }
 .woodhook{ position:relative; width:60%; left:20%; height:12px; margin-bottom:-2px; z-index:2;
   background:linear-gradient(180deg,#6b5238,#4a3826); border-radius:6px; transform:rotate(1deg);
   box-shadow:0 3px 7px rgba(40,28,15,.25); }
@@ -198,7 +200,7 @@ body{
   font-size:19px; color:#e6c98f; }
 
 /* ---------- ⑤ 风格化 ---------- */
-.art{ padding-top:var(--sp-8); }
+.art{ padding-top:var(--sp-module); }
 .art-frame{ position:relative; border-radius:12px; overflow:hidden;
   box-shadow:0 12px 32px rgba(51,40,25,.14); border:1px solid var(--line-2); }
 .art-img{ width:100%; display:block; filter:saturate(1.08) contrast(1.03); }
@@ -209,7 +211,7 @@ body{
   padding:4px 12px; border-radius:20px; }
 
 /* ---------- ⑥ 品牌页脚 ---------- */
-.foot{ text-align:center; padding:var(--sp-8) var(--sp-5) 0; position:relative; z-index:1; }
+.foot{ text-align:center; padding:var(--sp-module) var(--sp-5) 0; position:relative; z-index:1; }
 .brand{ font-family:var(--f-serif); font-weight:600; font-size:26px; letter-spacing:4px; color:var(--ink); }
 .brand-tag{ font-size:12px; color:var(--ink-soft); margin-top:6px; letter-spacing:2px; }
 .ai-note{ margin:var(--sp-5) auto 0; max-width:320px; text-align:left; background:transparent;
