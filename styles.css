@@ -215,7 +215,7 @@ body{
 }
 .poem{
   font-family:var(--f-poem);
-  font-size:27px; line-height:1.7; color:var(--ink);
+  font-size:20px; line-height:1.9; color:var(--ink);
   letter-spacing:.3px;
 }
 .poem-sign{ text-align:right; margin-top:14px; font-family:var(--f-en); font-size:14px; color:var(--ink-soft); }
